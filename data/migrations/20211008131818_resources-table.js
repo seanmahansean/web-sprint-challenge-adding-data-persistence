@@ -3,6 +3,7 @@ exports.up = function(knex) {
     tbl.increments("resource_id")
     tbl.string('resource_name')
       .notNullable()
+      .unique()
     tbl.text('resource_description')
 })
 }
