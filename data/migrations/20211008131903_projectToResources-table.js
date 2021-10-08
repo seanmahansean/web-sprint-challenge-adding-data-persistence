@@ -1,4 +1,3 @@
-
 exports.up = function(knex) {
   return knex.schema.createTable('projects_resources', tbl => {
     tbl.increments()
