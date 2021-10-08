@@ -1,11 +1,11 @@
 exports.up = function(knex) {
   return knex.schema.createTable('projects', tbl => {
-    tbl.increments()
+    tbl.increments("project_id")
     tbl.string('project_name')
       .unique()
       .notNullable()
-    tbl.text('project_details')
-    tbl.boolean('completed')
+    tbl.text('project_description')
+    tbl.boolean('project_completed')
       .defaultTo(false)
 })
 }

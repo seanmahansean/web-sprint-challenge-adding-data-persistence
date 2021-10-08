@@ -3,34 +3,34 @@ exports.seed = function(knex){
     .then(function(){
       return knex("resources").insert([
         {
-          id: 1,
+          resource_id: 1,
           resource_name: "Gamestop",
-          resource_details: "Stock investors hate this guy",
+          resource_description: "Stock investors hate this guy",
         },
         {
-          id: 2,
+          resource_id: 2,
           resource_name: "Facebook",
-          resource_details: "A perfect and moral social media that will never get hacked",
+          resource_description: "A perfect and moral social media that will never get hacked",
         },
         {
-          id: 3,
+          resource_id: 3,
           resource_name: "School",
-          resource_details: "12 grades of daycare",
+          resource_description: "12 grades of daycare",
         },
         {
-          id: 4,
+          resource_id: 4,
           resource_name: "Military",
-          resource_details: "Good at finding where the oil is",
+          resource_description: "Good at finding where the oil is",
         },
         {
-          id: 5,
+          resource_id: 5,
           resource_name: "Lambda",
-          resource_details: "I'm not making fun of this one",
+          resource_description: "I'm not making fun of this one",
         },
         {
-          id: 6,
+          resource_id: 6,
           resource_name: "Spotify",
-          resource_details: "Stiff your artists type beat",
+          resource_description: "Stiff your artists type beat",
         }
       ])
     })

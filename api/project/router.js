@@ -12,11 +12,29 @@ router.get("/", (req, res, next) => {
 })
 
 router.get("/:id", (req, res, next) => {
-  console.log("placeholder")
+  const {id} = req.params
+  Project.getById(id)
+    .then(project => {
+      if(!project){
+        res.status(404).json({message: "Project with that id does not exist"})
+      }else{
+        res.json(project)
+      }
+    })
+    .catch(err => {
+      next(err)
+    })
 })
 
 router.post("/", (req, res, next) => {
-  console.log("placeholder")
+  const project = req.body
+  Project.add(project)
+    .then(proj => {
+      res.status(201).json(proj)
+    })
+    .catch(err => {
+      next(err)
+    })
 })
 
 router.use("*", (req, res, next) => { //eslint-disable-line
