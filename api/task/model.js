@@ -1,11 +1,18 @@
 const db = require("../../data/dbConfig")
 
-const toBoolean = project => {
-  if(project.project_completed === 0 || !project.project_completed){
-    return {...project, 'project_completed': false}
+const toBoolean = task => {
+  let list = {...task}
+  if(task.task_completed === 0 || !task.task_completed){
+    list = {...list, 'task_completed': false}
   }else{
-    return {...project, 'project_completed': true}
+    list = {...list, 'task_completed': true}
   }
+  if(task.project_completed === 0 || !task.project_completed){
+    list = {...list, "project_completed": false}
+  }else{
+    list = {...list, "project_completed": true}
+  }
+  return list
 }
 
 async function get(){

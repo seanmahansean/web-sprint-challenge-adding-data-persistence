@@ -12,11 +12,29 @@ router.get("/", (req, res, next) => {
 })
 
 router.get("/:id", (req, res, next) => {
-  console.log("placeholder")
+  const {id} = req.params
+  Task.getById(id)
+    .then(task => {
+      if(!task){
+        res.status(404).json({message: "task with that id does not exist"})
+      }else{
+        res.json(task)
+      }
+    })
+    .catch(err => {
+      next(err)
+    })
 })
 
 router.post("/", (req, res, next) => {
-  console.log("placeholder")
+  const task = req.body
+  Task.add(task)
+    .then(tsk => {
+      res.status(201).json(tsk)
+    })
+    .catch(err => {
+      next(err)
+    })
 })
 
 router.use("*", (req, res, next) => { //eslint-disable-line
