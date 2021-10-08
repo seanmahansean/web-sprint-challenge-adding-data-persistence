@@ -2,7 +2,13 @@ const router = require("express").Router()
 const Task = require("./model")
 
 router.get("/", (req, res, next) => {
-  console.log("placeholder")
+  Task.get()
+    .then(task => {
+      res.json(task)
+    })
+    .catch(err => {
+      next(err)
+    })
 })
 
 router.get("/:id", (req, res, next) => {

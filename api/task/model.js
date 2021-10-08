@@ -1,7 +1,19 @@
 const db = require("../../data/dbConfig")
 
-function get(){
-  return db("tasks")
+const toBoolean = project => {
+  if(project.project_completed === 0 || !project.project_completed){
+    return {...project, 'project_completed': false}
+  }else{
+    return {...project, 'project_completed': true}
+  }
+}
+
+async function get(){
+  const tasks = await db("tasks")
+  const taskList = tasks.map(t => {
+    return toBoolean(t)
+  })
+  return taskList
 }
 
 function getById(id){

@@ -1,10 +1,10 @@
 const db = require("../../data/dbConfig")
 
 const toBoolean = project => {
-  if (project.project_completed === 0 || !project.project_completed) {
-      return {...project, 'project_completed': false};
-  } else {
-      return {...project, 'project_completed': true};
+  if(project.project_completed === 0 || !project.project_completed){
+    return {...project, 'project_completed': false}
+  }else{
+    return {...project, 'project_completed': true}
   }
 }
 
